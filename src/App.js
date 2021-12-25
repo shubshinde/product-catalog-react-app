@@ -20,6 +20,7 @@ export default function App() {
           <div key={index} className="group relative shadow-lg" >
             <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
               <img
+                alt="Product Image"
                 src={product.image}
                 className="w-full h-full object-center object-cover lg:w-full lg:h-full"
               />
@@ -65,12 +66,12 @@ export default function App() {
   // Get Product Categories.
   React.useEffect(() => {
 
-    axios.get(baseURL+'/categories').then((responseCategories) => {
+    axios.get(baseURL + '/categories').then((responseCategories) => {
 
       setCategories(responseCategories.data);
       console.log(Categories, 'Categories');
 
-    }).catch(error => { 
+    }).catch(error => {
 
       setError(error);
     });
@@ -87,16 +88,19 @@ export default function App() {
         <div className="px-6 py-4">
           <h1 className="text-3xl mb-2 font-bold text-white"> Product Catalog App </h1>
           <p className="text-gray-700 text-white">
-            by - <b style={{ color: 'orange' }}>Shubham</b>
+            by - <b style={{ color: 'orange' }}>Shubham123</b>
           </p>
           <div className="py-10">
-            {Categories.map(tag =>
-              <span
-                key={tag}
-                className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2">
-                {tag}
-              </span>
-            )}
+            { (Categories) ? <p className='text-white'>Tags : </p> : ''}
+            {
+              (Categories) ? Categories.map(tag =>
+                <span
+                  key={tag}
+                  className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2">
+                  {tag}
+                </span>
+              ) : ''
+            }
           </div>
         </div>
       </div>
