@@ -88,7 +88,7 @@ export default function App() {
         <div className="px-6 py-4">
           <h1 className="text-3xl mb-2 font-bold text-white"> Product Catalog App </h1>
           <p className="text-gray-700 text-white">
-            by - <b style={{ color: 'orange' }}>Shubham123</b>
+            by - <b style={{ color: 'orange' }}>Shubham</b>
           </p>
           <div className="py-10">
             { (Categories) ? <p className='text-white'>Tags : </p> : ''}
